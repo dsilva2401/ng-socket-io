@@ -1,0 +1,22 @@
+<html>
+
+	<body ng-app="app" ng-controller="c">
+		<script src="https://cdn.socket.io/socket.io-1.3.5.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+		<script src="ng-socket-io.js"></script>
+		<script type="text/javascript">
+
+			angular.module('app', ['ng-socket-io'])
+
+			.config(['$socketProvider', function($socketProvider) {
+			    $socketProvider.init('http://localhost:3000');
+			}])
+
+			.controller('c', function ($socket) {
+				$socket.emit(':D', {});
+			});
+
+		</script>
+	</body>
+
+</html>
